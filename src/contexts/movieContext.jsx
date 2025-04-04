@@ -36,7 +36,7 @@ function MovieProvider({ children }) {
                 setMovies(movieData.results || [])
                 setTv(tvData.results || [])
 
-                if (movieResults.length === 0 && tvResults.length === 0) {
+                if (movies.length === 0 && tv.length === 0) {
                     setState({
                         state: 'empty',
                         moviesData: [],
@@ -45,8 +45,8 @@ function MovieProvider({ children }) {
                 } else {
                     setState({
                         state: 'success',
-                        moviesData: movieResults,
-                        tvData: tvResults
+                        moviesData: movies,
+                        tvData: tv
                     });
                 }
             })

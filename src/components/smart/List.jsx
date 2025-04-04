@@ -30,7 +30,9 @@ export default function List() {
             return (
                 <>
                     <ListUi
-                        movies={state.moviesData} />
+                        movies={state.moviesData}
+                        series={state.tvData}
+                    />
                 </>
             )
     }
