@@ -7,7 +7,7 @@ export default function ListUi({ movies }) {
             <div className="container">
                 <h1>list</h1>
                 {movies.map(item => (
-                    <h4> {item.title}</h4>
+                    <h4 key={item.id}> {item.title}</h4>
                 ))}
             </div >
         </>

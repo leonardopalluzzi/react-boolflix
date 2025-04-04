@@ -13,14 +13,12 @@ function MovieProvider({ children }) {
         state: 'loading'
     })
 
-    const [movies, setMovies] = useState([])
-
     const [searchText, setSearchText] = useState('')
     console.log(searchText);
     const endpoint = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${searchText}`
 
 
-    //hooks
+    // //hooks
     // useEffect(() => {
     //     handleFetch()
     // }, [])
@@ -32,15 +30,30 @@ function MovieProvider({ children }) {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                setMovies(data)
+                if (data.results && data.results.length > 0) {
+                    console.log(data.results); //vuoto
+                    setState({
+                        state: 'success',
+                        page: data.page,
+                        moviesData: [
+                            ...data.results
+                        ]
+                    })
+                } else {
+                    setState({
+                        state: 'empty',
+                        moviesData: []
+                    })
+                }
+            })
+            .catch(err => {
+                console.error(err)
                 setState({
-                    state: 'success',
-                    page: movies.page,
-                    movies: [
-                        ...movies.results
-                    ]
+                    state: 'error',
+                    message: err.message
                 })
             })
+
     }
 
     return (

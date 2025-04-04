@@ -5,6 +5,7 @@ import ListUi from "../dumb/List.ui"
 export default function List() {
 
     const { state, setState } = useMovieContext()
+    console.log(state);
 
     switch (state.state) {
         case 'loading':
@@ -19,11 +20,17 @@ export default function List() {
                     <h1>error</h1>
                 </>
             )
+        case 'empty':
+            return (
+                <>
+                    <h1>no results found</h1>
+                </>
+            )
         case 'success':
             return (
                 <>
                     <ListUi
-                        movies={state.movies} />
+                        movies={state.moviesData} />
                 </>
             )
     }
