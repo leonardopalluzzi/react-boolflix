@@ -1,4 +1,5 @@
 import CardUi from "./Card.ui";
+import CardSerieUi from "./CardSerie.ui";
 
 export default function ListUi({ movies, series }) {
 
@@ -11,7 +12,7 @@ export default function ListUi({ movies, series }) {
                 ))}
                 <h1>Series</h1>
                 {series.map(item => (
-                    <CardUi key={item.id} movie={item} />
+                    <CardSerieUi key={item.id} serie={item} />
                 ))}
             </div >
         </>

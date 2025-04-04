@@ -55,7 +55,6 @@ function MovieProvider({ children }) {
                     message: err.message
                 })
             })
-
     }
 
     return (

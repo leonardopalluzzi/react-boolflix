@@ -1,10 +1,13 @@
 import ReactFlagsSelect from "react-flags-select";
 
-export default function CardUi({ movie }) {
+export default function CardSerieUi({ serie }) {
+
+    //console.log(movie);
 
     const imgPath = 'https://image.tmdb.org/t/p/w185'
 
-    let language = movie.original_language;
+
+    let language = serie.original_language;
 
     if (language == 'en') {
         language = 'uk'
@@ -15,16 +18,16 @@ export default function CardUi({ movie }) {
     return (
         <>
             <div className="container">
-                <div className="card w-50 m-auto">
-                    <div className="card-header text-center">
-                        <img src={`${imgPath}${movie.poster_path}`} alt="" />
+                <div className="card w-50 text-center m-auto">
+                    <div className="card-header">
+                        <img src={`${imgPath}${serie.poster_path}`} alt="" />
                     </div>
                     <div className="card-body">
                         <ul>
-                            <li>{movie.title}</li>
-                            <li>{movie.original_title}</li>
+                            <li>{serie.name}</li>
+                            <li>{serie.original_name}</li>
                             <li><img className="card_img" src={`https://www.worldometers.info//img/flags/small/tn_${language}-flag.gif`} alt="language" /></li>
-                            <li>{movie.vote_average}</li>
+                            <li>{serie.vote_average}</li>
                         </ul>
                     </div>
                 </div>

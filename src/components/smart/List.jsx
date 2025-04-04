@@ -4,7 +4,7 @@ import ListUi from "../dumb/List.ui"
 
 export default function List() {
 
-    const { searchText, state, setState } = useMovieContext()
+    const { state, setState } = useMovieContext()
     console.log(state);
 
     useEffect(() => {
