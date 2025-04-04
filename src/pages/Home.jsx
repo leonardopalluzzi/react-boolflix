@@ -1,7 +1,13 @@
+import List from '../components/smart/List'
+
 export default function Home() {
     return (
         <>
-            <h1>home</h1>
+            <main>
+                <h1>main</h1>
+                <List />
+            </main>
+
         </>
     )
 }

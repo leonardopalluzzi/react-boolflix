@@ -9,17 +9,21 @@ const MovieContext = createContext();
 function MovieProvider({ children }) {
 
     //states
+    const [state, setState] = useState({
+        state: 'loading'
+    })
+
     const [movies, setMovies] = useState([])
 
-    const [searchText, setSearchText] = useState('matrix')
+    const [searchText, setSearchText] = useState('')
     console.log(searchText);
     const endpoint = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${searchText}`
 
 
     //hooks
-    useEffect(() => {
-        handleFetch()
-    }, [])
+    // useEffect(() => {
+    //     handleFetch()
+    // }, [])
 
 
     //functions
@@ -29,12 +33,19 @@ function MovieProvider({ children }) {
             .then(data => {
                 console.log(data);
                 setMovies(data)
+                setState({
+                    state: 'success',
+                    page: movies.page,
+                    movies: [
+                        ...movies.results
+                    ]
+                })
             })
     }
 
     return (
         <>
-            <MovieContext.Provider value={{ movies, setMovies, handleFetch, searchText, setSearchText }}>
+            <MovieContext.Provider value={{ state, setState, handleFetch, searchText, setSearchText }}>
                 {children}
             </MovieContext.Provider>
         </>
