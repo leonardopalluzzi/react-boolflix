@@ -15,18 +15,18 @@ function MovieProvider({ children }) {
 
     const [searchText, setSearchText] = useState('')
     console.log(searchText);
-    const endpoint = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${searchText}`
-
-
-    // //hooks
-    // useEffect(() => {
-    //     handleFetch()
-    // }, [])
-
+    const endpointMovie = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${searchText}`
+    const endpointTv = `https://api.themoviedb.org/3/search/tv?api_key=${api_key}&query=${searchText}`
 
     //functions
     function handleFetch() {
-        fetch(endpoint)
+        handleMovieFetch()
+        handleTvFetch()
+
+    }
+
+    function handleMovieFetch() {
+        fetch(endpointMovie)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -53,7 +53,38 @@ function MovieProvider({ children }) {
                     message: err.message
                 })
             })
+    }
 
+    function handleTvFetch() {
+        console.log(state);
+
+        fetch(endpointTv)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.results && data.results.length > 0 && state.moviesData) {
+                    console.log(data.results); //vuoto
+                    setState({
+                        ...state,
+                        state: 'success',
+                        tvData: [
+                            ...data.results
+                        ]
+                    })
+                } else {
+                    setState({
+                        state: 'empty',
+                        tvData: []
+                    })
+                }
+            })
+            .catch(err => {
+                console.error(err)
+                setState({
+                    state: 'error',
+                    message: err.message
+                })
+            })
     }
 
     return (

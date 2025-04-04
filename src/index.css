@@ -1,2 +1,8 @@
 @import 'bootstrap';
 @import 'bootstrap-icons';
+
+
+/* #region card  */
+.card_img {
+    width: 4%;
+}
