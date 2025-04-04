@@ -1,5 +1,5 @@
-import CardUi from "./Card.ui";
-import CardSerieUi from "./CardSerie.ui";
+import Card from "../smart/Card";
+import CardSeries from "../smart/CardSeries";
 
 export default function ListUi({ movies, series }) {
 
@@ -8,11 +8,11 @@ export default function ListUi({ movies, series }) {
             <div className="container">
                 <h1>movies</h1>
                 {movies.map(item => (
-                    <CardUi key={item.id} movie={item} />
+                    <Card key={item.id} movie={item} />
                 ))}
                 <h1>Series</h1>
                 {series.map(item => (
-                    <CardSerieUi key={item.id} serie={item} />
+                    <CardSeries key={item.id} serie={item} />
                 ))}
             </div >
         </>

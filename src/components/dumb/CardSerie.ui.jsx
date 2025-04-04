@@ -1,20 +1,4 @@
-import ReactFlagsSelect from "react-flags-select";
-
-export default function CardSerieUi({ serie }) {
-
-    //console.log(movie);
-
-    const imgPath = 'https://image.tmdb.org/t/p/w185'
-
-
-    let language = serie.original_language;
-
-    if (language == 'en') {
-        language = 'uk'
-    }
-
-
-
+export default function CardSerieUi({ rating, serie, imgPath, language }) {
     return (
         <>
             <div className="container">
@@ -27,7 +11,7 @@ export default function CardSerieUi({ serie }) {
                             <li>{serie.name}</li>
                             <li>{serie.original_name}</li>
                             <li><img className="card_img" src={`https://www.worldometers.info//img/flags/small/tn_${language}-flag.gif`} alt="language" /></li>
-                            <li>{Math.round(serie.vote_average / 2)}</li>
+                            <li>{rating == 0 ? 'No rating' : Array.from(Array(rating), (el, i) => <i key={i} className="bi bi-star-fill text-warning"></i>)}</li>
                         </ul>
                     </div>
                 </div>

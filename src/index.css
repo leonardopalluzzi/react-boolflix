@@ -2,6 +2,25 @@
 @import 'bootstrap-icons';
 
 
+:root {
+    --bf-primary: #E40A13;
+    --bf-dark: #141414;
+    --bf-darkest: #090909;
+    --bf-lighter: white;
+    --bf-mid: #595959;
+}
+
+/* #region header  */
+header {
+    color: var(--bf-lighter);
+    background-image: linear-gradient(var(--bf-darkest), transparent);
+
+    .logo {
+        width: 15%;
+    }
+}
+
+
 /* #region card  */
 .card_img {
     width: 4%;

@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import { useMovieContext } from "../../contexts/movieContext"
 import ListUi from "../dumb/List.ui"
 
 export default function List() {
 
-    const { state, setState } = useMovieContext()
+    const { state } = useMovieContext()
     console.log(state);
 
     useEffect(() => {
