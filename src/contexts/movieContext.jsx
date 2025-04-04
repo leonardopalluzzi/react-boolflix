@@ -1,18 +1,26 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 
-const api_key = import.meta.env.MOVIE_DB_API_KEY;
-const endpoint = 'https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${serchText}'
+const api_key = import.meta.env.VITE_MOVIE_DB_API_KEY;
+const endpoint = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${serchText}`
+
 
 const MovieContext = createContext();
 
 function MovieProvider({ children }) {
 
+    //states
     const [movies, setMovies] = useState([])
 
+    const [searchText, setSearchText] = useState('')
+
+
+    //hooks
     useEffect(() => {
         handleFetch()
     })
 
+
+    //functions
     function handleFetch() {
         fetch(endpoint)
             .then(res => res.json())
@@ -24,7 +32,7 @@ function MovieProvider({ children }) {
 
     return (
         <>
-            <MovieContext.Provider value={{ movies, setMovies, handleFetch }}>
+            <MovieContext.Provider value={{ movies, setMovies, handleFetch, searchText, setSearchText }}>
                 {children}
             </MovieContext.Provider>
         </>
