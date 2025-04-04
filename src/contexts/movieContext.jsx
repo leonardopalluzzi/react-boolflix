@@ -13,11 +13,6 @@ function MovieProvider({ children }) {
         state: 'loading'
     })
 
-    //movies array
-    const [movies, setMovies] = useState([])
-    //tv array
-    const [tv, setTv] = useState([])
-
     const [searchText, setSearchText] = useState('')
     console.log(searchText);
     const endpointMovie = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${searchText}`
@@ -33,10 +28,10 @@ function MovieProvider({ children }) {
         ])
             .then(([movieData, tvData]) => {
 
-                setMovies(movieData.results || [])
-                setTv(tvData.results || [])
+                const movies = movieData.results || []
+                const tv = tvData.results || []
 
-                if (movies.length === 0 && tv.length === 0) {
+                if (movieData.results.length === 0 && tvData.results.length === 0) {
                     setState({
                         state: 'empty',
                         moviesData: [],
@@ -49,6 +44,9 @@ function MovieProvider({ children }) {
                         tvData: tv
                     });
                 }
+
+                console.log(state);
+
             })
             .catch(err => {
                 console.error(err)

@@ -4,8 +4,12 @@ import ListUi from "../dumb/List.ui"
 
 export default function List() {
 
-    const { state, setState } = useMovieContext()
+    const { searchText, state, setState } = useMovieContext()
     console.log(state);
+
+    useEffect(() => {
+
+    })
 
     switch (state.state) {
         case 'loading':

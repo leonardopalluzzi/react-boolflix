@@ -2,8 +2,6 @@ import CardUi from "./Card.ui";
 
 export default function ListUi({ movies, series }) {
 
-    console.log(movies);
-
     return (
         <>
             <div className="container">
