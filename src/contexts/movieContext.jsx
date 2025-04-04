@@ -13,69 +13,41 @@ function MovieProvider({ children }) {
         state: 'loading'
     })
 
+    //movies array
+    const [movies, setMovies] = useState([])
+    //tv array
+    const [tv, setTv] = useState([])
+
     const [searchText, setSearchText] = useState('')
     console.log(searchText);
     const endpointMovie = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${searchText}`
     const endpointTv = `https://api.themoviedb.org/3/search/tv?api_key=${api_key}&query=${searchText}`
 
+
     //functions
     function handleFetch() {
-        handleMovieFetch()
-        handleTvFetch()
+        //parallel fetch
+        Promise.all([
+            fetch(endpointMovie).then(res => res.json()),
+            fetch(endpointTv).then(res => res.json())
+        ])
+            .then(([movieData, tvData]) => {
 
-    }
+                setMovies(movieData.results || [])
+                setTv(tvData.results || [])
 
-    function handleMovieFetch() {
-        fetch(endpointMovie)
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.results && data.results.length > 0) {
-                    console.log(data.results); //vuoto
-                    setState({
-                        state: 'success',
-                        page: data.page,
-                        moviesData: [
-                            ...data.results
-                        ]
-                    })
-                } else {
+                if (movieResults.length === 0 && tvResults.length === 0) {
                     setState({
                         state: 'empty',
-                        moviesData: []
-                    })
-                }
-            })
-            .catch(err => {
-                console.error(err)
-                setState({
-                    state: 'error',
-                    message: err.message
-                })
-            })
-    }
-
-    function handleTvFetch() {
-        console.log(state);
-
-        fetch(endpointTv)
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.results && data.results.length > 0 && state.moviesData) {
-                    console.log(data.results); //vuoto
-                    setState({
-                        ...state,
-                        state: 'success',
-                        tvData: [
-                            ...data.results
-                        ]
-                    })
-                } else {
-                    setState({
-                        state: 'empty',
+                        moviesData: [],
                         tvData: []
-                    })
+                    });
+                } else {
+                    setState({
+                        state: 'success',
+                        moviesData: movieResults,
+                        tvData: tvResults
+                    });
                 }
             })
             .catch(err => {
@@ -85,6 +57,7 @@ function MovieProvider({ children }) {
                     message: err.message
                 })
             })
+
     }
 
     return (
