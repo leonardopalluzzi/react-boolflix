@@ -20,8 +20,13 @@ body {
 
 /* #region header  */
 header {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    overflow: hidden;
     color: var(--bf-lighter);
     background-image: linear-gradient(var(--bf-darkest), transparent);
+    z-index: 10;
 
     .logo {
         width: 15%;
@@ -33,11 +38,17 @@ header {
 /* #region jumbo  */
 
 .jumbo {
-    height: 500px;
+    height: 70vh;
     overflow: hidden;
+    background-image: linear-gradient(transparent, var(--bf-dark));
 
     .img_jumbo_big {
-        text-align: center;
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 0;
     }
 
     .jumbo_content {
