@@ -1,17 +1,17 @@
-export default function JumboUi({ popular, imgPath }) {
+export default function JumboUi({ popular, imgPath, index }) {
     return (
         <>
             <div className="jumbo">
                 <div className="h-100 position-relative">
-                    <img className="img_jumbo_big" src={imgPath + popular.moviesPopular[1].poster_path} alt="" />
+                    <img className="img_jumbo_big" src={imgPath + popular.moviesPopular[index].poster_path} alt="" />
                     <div className="container h-100 position-relative">
                         <div className="jumbo_content">
                             <div className="title">
                                 <img src="placeholder.png" alt="" />
-                                <h3>titolo</h3>
+                                <h3>{popular.moviesPopular[index].original_title}</h3>
                             </div>
                             <div className="content">
-                                <p>Lorem ipsum dolor sit amet.</p>
+                                <p>{popular.moviesPopular[index].overview}</p>
                             </div>
                             <div className="operations">
                                 <button className="btn btn-light mx-4">Guarda ora</button>

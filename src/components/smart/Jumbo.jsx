@@ -1,10 +1,22 @@
 import JumboUi from "../dumb/Jumbo.ui";
 import { useMovieContext } from "../../contexts/movieContext";
+import { useState, useEffect } from 'react'
 
 export default function Jumbo() {
 
     const { popular } = useMovieContext()
-    console.log(popular);
+
+    
+    
+    const [index, setIndex] = useState(0)
+
+    useEffect(()=>{
+        const arr = popular.moviesPopular
+        if(index > arr.length){
+            setIndex(0);
+        }
+        setIndex(index + 1)
+    }, 3000)
 
     const imgPath = 'https://image.tmdb.org/t/p/w500'
 
@@ -25,7 +37,7 @@ export default function Jumbo() {
         case 'success':
             return (
                 <>
-                    <JumboUi imgPath={imgPath} popular={popular} />
+                    <JumboUi index={index} imgPath={imgPath} popular={popular} />
                 </>
             )
     }
