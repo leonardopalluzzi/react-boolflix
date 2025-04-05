@@ -1,6 +1,7 @@
 @import 'bootstrap';
 @import 'bootstrap-icons';
 
+/* #region common  */
 
 :root {
     --bf-primary: #E40A13;
@@ -9,6 +10,13 @@
     --bf-lighter: white;
     --bf-mid: #595959;
 }
+
+body {
+    background-color: var(--bf-dark);
+    color: var(--bf-lighter);
+}
+
+/* #endregion common  */
 
 /* #region header  */
 header {
@@ -20,8 +28,68 @@ header {
     }
 }
 
+/* #endregion header  */
+
+/* #region jumbo  */
+
+.jumbo {
+    height: 500px;
+    overflow: hidden;
+
+    .img_jumbo_big {
+        text-align: center;
+    }
+
+    .jumbo_content {
+        position: absolute;
+        padding: 2rem;
+        bottom: 0;
+        left: 0;
+    }
+}
 
 /* #region card  */
 .card_img {
     width: 4%;
 }
+
+/* #endregion card  */
+
+/* #region footer  */
+
+footer {
+
+    .footer_list_style {
+        list-style: none;
+    }
+
+    .icons {
+        li {
+            margin-right: 2rem;
+            font-size: 1.8rem;
+
+            a {
+                color: var(--bf-lighter);
+            }
+
+        }
+    }
+
+    .footer_lists {
+        ul {
+
+            a {
+                text-decoration: none;
+                color: var(--bf-mid);
+                font-size: 0.9rem;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+    }
+}
+
+/* #endregion footer  */

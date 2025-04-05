@@ -13,18 +13,53 @@ function MovieProvider({ children }) {
         state: 'loading'
     })
 
+    const [popular, setPopular] = useState({
+        state: 'loading'
+    })
+
     const [searchText, setSearchText] = useState('')
     console.log(searchText);
+
+    //endpoints
     const endpointMovie = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${searchText}`
     const endpointTv = `https://api.themoviedb.org/3/search/tv?api_key=${api_key}&query=${searchText}`
+    const endpointPopular = `https://api.themoviedb.org/3/movie/popular?api_key=${api_key}`
+
+
+    useEffect(() => {
+        handlePopularFetch()
+    }, [])
 
 
     //functions
+
+    function handlePopularFetch() {
+        fetch(endpointPopular)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setPopular({
+                    state: 'success',
+                    moviesPopular: data.results
+                })
+                console.log(popular);
+            })
+            .catch(err => {
+                console.error(err)
+                setPopular({
+                    state: 'error',
+                    message: err.message
+                })
+            })
+    }
+
+
+
     function handleFetch() {
         //parallel fetch
         Promise.all([
             fetch(endpointMovie).then(res => res.json()),
-            fetch(endpointTv).then(res => res.json())
+            fetch(endpointTv).then(res => res.json()),
         ])
             .then(([movieData, tvData]) => {
 
@@ -59,7 +94,7 @@ function MovieProvider({ children }) {
 
     return (
         <>
-            <MovieContext.Provider value={{ state, setState, handleFetch, searchText, setSearchText }}>
+            <MovieContext.Provider value={{ popular, setPopular, state, setState, handleFetch, searchText, setSearchText }}>
                 {children}
             </MovieContext.Provider>
         </>

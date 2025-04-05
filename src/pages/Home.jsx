@@ -1,10 +1,11 @@
 import List from '../components/smart/List'
+import Jumbo from '../components/smart/Jumbo'
 
 export default function Home() {
     return (
         <>
             <main>
-                <h1>main</h1>
+                <Jumbo />
                 <List />
             </main>
 
