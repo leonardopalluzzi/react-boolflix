@@ -6,17 +6,18 @@ export default function Jumbo() {
 
     const { popular } = useMovieContext()
 
-    
-    
+
+
     const [index, setIndex] = useState(0)
 
-    useEffect(()=>{
-        const arr = popular.moviesPopular
-        if(index > arr.length){
-            setIndex(0);
-        }
-        setIndex(index + 1)
-    }, 3000)
+    //aggiustare 
+    // useEffect(() => {
+    //     const arr = popular.moviesPopular
+    //     if (index > arr.length) {
+    //         setIndex(0);
+    //     }
+    //     setIndex(index + 1)
+    // }, [3000])
 
     const imgPath = 'https://image.tmdb.org/t/p/w500'
 
