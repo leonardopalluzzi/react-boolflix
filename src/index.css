@@ -9,6 +9,7 @@
     --bf-darkest: #090909;
     --bf-lighter: white;
     --bf-mid: #595959;
+    --bf-mid-transparent: #5959599d;
 }
 
 body {
@@ -67,6 +68,7 @@ header {
 .movie_card {
     ul {
         list-style: none;
+        padding: 0.5rem;
 
         li {
             border-bottom: 1px solid var(--bf-lighter);
@@ -75,15 +77,22 @@ header {
         }
     }
 
-    transition-duration: 0.5s;
-
-    &:hover {
-        transform: scale(1.2);
-    }
-
     .movie_card_body {
-        background-color: var(--bf-mid);
+        background-color: var(--bf-mid-transparent);
         color: var(--bf-lighter);
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 10px;
+        z-index: 50;
+        transition-duration: 0.5s;
+        height: 100%;
+
+        &:hover {
+            transform: scale(1.1);
+            backdrop-filter: blur(10px);
+        }
     }
 }
 

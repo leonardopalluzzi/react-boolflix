@@ -1,12 +1,12 @@
 export default function CardUi({ movie, imgPath, language, rating, hover, setHover }) {
     return (
         <>
-            <div className="container">
-                <div onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} className={`card border border-0 m-auto movie_card`}>
-                    <div className={`card-header border border-0 p-0 text-center`}>
+            <div className="container position-relative">
+                <div onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} className={`movie_card`}>
+                    <div className={`card-header border border-0 p-0`}>
                         <img src={`${imgPath}${movie.poster_path}`} alt="" />
                     </div>
-                    <div className={`card-body movie_card_body w-100 ${hover == false ? 'd-none' : ''}`}>
+                    <div className={`movie_card_body ${hover == false ? 'd-none' : ''}`}>
                         <ul>
                             <li>
                                 <h6>Title: </h6>
@@ -27,6 +27,10 @@ export default function CardUi({ movie, imgPath, language, rating, hover, setHov
                                 <span>
                                     {rating == 0 ? 'No rating' : Array.from(Array(rating), (el, i) => <i key={i} className="bi bi-star-fill text-warning"></i>)}
                                 </span>
+                            </li>
+                            <li>
+                                <h6>Overview: </h6>
+                                <span>{movie.overview}</span>
                             </li>
                         </ul>
                     </div>

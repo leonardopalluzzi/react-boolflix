@@ -5,7 +5,7 @@ export default function Card({ movie }) {
 
     const [hover, setHover] = useState(true)
 
-    const imgPath = 'https://image.tmdb.org/t/p/w185'
+    const imgPath = 'https://image.tmdb.org/t/p/w342'
 
     let language = movie.original_language;
     let rating = Math.ceil(movie.vote_average / 2)
