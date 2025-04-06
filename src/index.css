@@ -61,7 +61,30 @@ header {
 
 /* #region card  */
 .card_img {
-    width: 4%;
+    width: 20%;
+}
+
+.movie_card {
+    ul {
+        list-style: none;
+
+        li {
+            border-bottom: 1px solid var(--bf-lighter);
+            padding: 1rem 0;
+            font-size: 0.8rem;
+        }
+    }
+
+    transition-duration: 0.5s;
+
+    &:hover {
+        transform: scale(1.2);
+    }
+
+    .movie_card_body {
+        background-color: var(--bf-mid);
+        color: var(--bf-lighter);
+    }
 }
 
 /* #endregion card  */

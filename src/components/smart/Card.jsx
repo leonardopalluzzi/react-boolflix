@@ -1,6 +1,10 @@
+import { useState } from 'react'
 import CardUi from "../dumb/Card.ui"
 
 export default function Card({ movie }) {
+
+    const [hover, setHover] = useState(true)
+
     const imgPath = 'https://image.tmdb.org/t/p/w185'
 
     let language = movie.original_language;
@@ -11,7 +15,14 @@ export default function Card({ movie }) {
     }
     return (
         <>
-            <CardUi rating={rating} language={language} movie={movie} imgPath={imgPath} />
+            <CardUi
+                hover={hover}
+                setHover={setHover}
+                rating={rating}
+                language={language}
+                movie={movie}
+                imgPath={imgPath}
+            />
         </>
     )
 }
