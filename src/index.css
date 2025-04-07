@@ -41,7 +41,7 @@ header {
 .jumbo {
     height: 70vh;
     overflow: hidden;
-    background-image: linear-gradient(transparent, var(--bf-dark));
+
 
     .img_jumbo_big {
         position: absolute;
@@ -52,11 +52,34 @@ header {
         z-index: 0;
     }
 
-    .jumbo_content {
-        position: absolute;
-        padding: 2rem;
-        bottom: 0;
-        left: 0;
+    .jumbo_bg {
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(transparent, var(--bf-dark));
+
+        .jumbo_content {
+            width: 40%;
+            position: absolute;
+            padding: 2rem;
+            bottom: 0;
+            left: 0;
+
+        }
+    }
+
+
+}
+
+/* #endregion jumbo  */
+
+/* #region list  */
+
+.lists {
+
+    .movies,
+    .series {
+        overflow-y: visible;
+        overflow-x: scroll;
     }
 }
 
