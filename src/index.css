@@ -75,9 +75,11 @@ header {
 /* #region list  */
 
 .lists_scroll {
-    /* overflow-x: scroll;
-    display: flex; */
+    overflow-x: scroll;
+    display: flex;
 }
+
+
 
 /* #region card  */
 .card_img {

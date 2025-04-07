@@ -4,7 +4,8 @@ import ListUi from "../dumb/List.ui"
 
 export default function List() {
 
-    const scrollRef = useRef();
+    const scrollRefUp = useRef();
+    const scrollRefDown = useRef();
 
     console.log(scrollRef);
 
@@ -34,6 +35,7 @@ export default function List() {
             return (
                 <>
                     <h1>error</h1>
+                    <span>{state.message}</span>
                 </>
             )
         case 'empty':
@@ -50,6 +52,7 @@ export default function List() {
                         scrollRef={scrollRef}
                         movies={state.moviesData}
                         series={state.tvData}
+                        scrollRefDown={scrollRefDown}
                     />
                 </>
             )

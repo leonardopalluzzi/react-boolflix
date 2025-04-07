@@ -1,26 +1,20 @@
-import { useCastContext } from "../../contexts/castContext"
-import MovieCast from "../smart/MovieCast";
-
-export default function CardUi({ movie, imgPath, language, rating, hover, setHover }) {
-
-    const { setMovieId, handleCastsFetch } = useCastContext()
-
+export default function CardUi({ title, overview, originalName, posterPath, imgPath, language, rating, hover, setHover, castComponent }) {
     return (
         <>
             <div className="container position-relative">
-                <div onMouseEnter={() => { setHover(true); setMovieId(movie.id) }} onMouseLeave={() => { setHover(false); setMovieId(0) }} className={`movie_card`}>
+                <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} className={`movie_card`}>
                     <div className={`card-header border border-0 p-0`}>
-                        <img src={`${imgPath}${movie.poster_path}`} alt="" />
+                        <img src={`${imgPath}${posterPath}`} alt="" />
                     </div>
                     <div className={`movie_card_body ${hover == false ? 'd-none' : ''}`}>
                         <ul>
                             <li>
                                 <h6>Title: </h6>
-                                <span>{movie.title}</span>
+                                <span>{title}</span>
                             </li>
                             <li>
                                 <h6>Original Title: </h6>
-                                <span>{movie.original_title}</span>
+                                <span>{originalName}</span>
                             </li>
                             <li>
                                 <h6>Language: </h6>
@@ -35,9 +29,9 @@ export default function CardUi({ movie, imgPath, language, rating, hover, setHov
                             </li>
                             <li>
                                 <h6>Overview: </h6>
-                                <span>{movie.overview ? movie.overview : 'No Data'}</span>
+                                <span>{overview ? overview : 'No Data'}</span>
                             </li>
-                            <li><MovieCast /></li>
+                            <li>{castComponent}</li>
                         </ul>
                     </div>
                 </div>

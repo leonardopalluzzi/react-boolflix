@@ -1,7 +1,9 @@
 import { useState } from 'react'
-import CardSerieUi from "../dumb/CardSerie.ui";
+import CardUi from '../dumb/Card.ui';
+import SerieCast from './SerieCast';
 
 export default function CardSeries({ serie }) {
+
 
     const [hover, setHover] = useState(false)
 
@@ -16,13 +18,17 @@ export default function CardSeries({ serie }) {
     }
     return (
         <>
-            <CardSerieUi
+            <CardUi
+                castComponent={<SerieCast serieId={serie.id} />}
                 hover={hover}
                 setHover={setHover}
                 rating={rating}
                 language={language}
-                movie={serie}
                 imgPath={imgPath}
+                title={serie.name}
+                overview={serie.overview}
+                originalName={serie.original_name}
+                posterPath={serie.poster_path}
             />
         </>
     )

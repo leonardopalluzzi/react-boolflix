@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import CardUi from "../dumb/Card.ui"
+import MovieCast from './MovieCast'
 
 export default function Card({ movie }) {
+
+
 
     const [hover, setHover] = useState(false)
 
@@ -16,12 +19,16 @@ export default function Card({ movie }) {
     return (
         <>
             <CardUi
+                castComponent={<MovieCast moveId={movie.id} />}
                 hover={hover}
                 setHover={setHover}
                 rating={rating}
                 language={language}
-                movie={movie}
                 imgPath={imgPath}
+                title={movie.title}
+                overview={movie.overview}
+                originalName={movie.original_title}
+                posterPath={movie.poster_path}
             />
         </>
     )

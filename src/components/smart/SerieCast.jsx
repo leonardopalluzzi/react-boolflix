@@ -1,38 +1,51 @@
-import { useCastContext } from "../../contexts/castContext"
-import SerieCastUi from '../dumb/SerieCast.ui'
+import useSeriesCast from '../../hooks/useSeriesCast';
+import CastUi from '../dumb/Cast.ui'
 
-export default function SerieCast() {
-    const { casts } = useCastContext()
-    console.log(casts);
+export default function SerieCast({ serieId }) {
 
+    const { castState } = useSeriesCast({ id: serieId })
 
-    switch (casts.state) {
-        case 'empty':
-            return (
-                <>
-                    <span>No info</span>
-                </>
-            )
-        case 'loading':
-            return (
-                <>
-                    <span>Loading...</span>
-                </>
-            )
-        case 'error':
-            return (
-                <>
-                    <span>error: </span>
-                    <span>{casts.message}</span>
-                </>
-            )
-        case 'success':
-            return (
-                <>
-                    <SerieCastUi
-                        cast={casts.cast}
-                    />
-                </>
-            )
+    function renderSeriesCast() {
+        switch (castState.state) {
+            case 'empty':
+                return (
+                    <>
+                        <span>No info</span>
+                    </>
+                )
+            case 'loading':
+                return (
+                    <>
+                        <span>Loading...</span>
+                    </>
+                )
+            case 'error':
+                return (
+                    <>
+                        <span>error: </span>
+                        <span>{castState.message}</span>
+                    </>
+                )
+            case 'success':
+                return (
+                    <>
+                        <CastUi
+                            cast={castState.cast}
+                        />
+                    </>
+                )
+        }
     }
+
+
+    return (
+        <>
+            {renderSeriesCast()}
+        </>
+    )
+
+
+
+
+
 }
