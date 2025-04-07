@@ -35,7 +35,7 @@ export default function CardUi({ movie, imgPath, language, rating, hover, setHov
                             </li>
                             <li>
                                 <h6>Overview: </h6>
-                                <span>{movie.overview}</span>
+                                <span>{movie.overview ? movie.overview : 'No Data'}</span>
                             </li>
                             <li><MovieCast /></li>
                         </ul>

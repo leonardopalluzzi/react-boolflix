@@ -1,3 +1,5 @@
+import SerieCast from "../smart/SerieCast.jsx"
+
 export default function CardSerieUi({ movie, imgPath, language, rating, hover, setHover }) {
     return (
         <>
@@ -29,8 +31,11 @@ export default function CardSerieUi({ movie, imgPath, language, rating, hover, s
                                 </span>
                             </li>
                             <li>
-                                <h6>Overview: </h6>
-                                <span>{movie.overview}</span>
+                                <h6 className="overview">Overview: </h6>
+                                <span>{movie.overview ? movie.overview : 'No Data'}</span>
+                            </li>
+                            <li>
+                                <SerieCast />
                             </li>
                         </ul>
                     </div>

@@ -1,5 +1,5 @@
 import { useCastContext } from "../../contexts/castContext"
-import MovieCastUi from "../dumb/MovieCast.ui"
+import SerieCastUi from '../dumb/SerieCast.ui'
 
 export default function MovieCast() {
     const { casts } = useCastContext()
@@ -27,8 +27,8 @@ export default function MovieCast() {
         case 'success':
             return (
                 <>
-                    <MovieCastUi
-                        cast={casts.movieCast}
+                    <SerieCastUi
+                        cast={casts.serieCast}
                     />
                 </>
             )
