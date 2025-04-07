@@ -1,3 +1,5 @@
+import MovieCastUi from "./MovieCast.ui"
+
 export default function CardUi({ movie, imgPath, language, rating, hover, setHover }) {
     return (
         <>
@@ -32,6 +34,7 @@ export default function CardUi({ movie, imgPath, language, rating, hover, setHov
                                 <h6>Overview: </h6>
                                 <span>{movie.overview}</span>
                             </li>
+                            <li><MovieCastUi /></li>
                         </ul>
                     </div>
                 </div>
