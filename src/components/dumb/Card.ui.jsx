@@ -1,4 +1,18 @@
 export default function CardUi({ title, overview, originalName, posterPath, imgPath, language, rating, hover, setHover, castComponent }) {
+
+
+    function sliceOverview(text) {
+        let displayText
+        if (text.length > 150) {
+            displayText = text.slice(0, 150) + '...'
+        } else {
+            displayText = text
+        }
+
+        return displayText
+    }
+
+
     return (
         <>
             <div className="container position-relative">
@@ -29,7 +43,7 @@ export default function CardUi({ title, overview, originalName, posterPath, imgP
                             </li>
                             <li>
                                 <h6>Overview: </h6>
-                                <span>{overview ? overview : 'No Data'}</span>
+                                <span className="overview">{overview ? sliceOverview(overview) : 'No Data'}</span>
                             </li>
                             <li>{castComponent}</li>
                         </ul>

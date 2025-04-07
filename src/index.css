@@ -75,9 +75,26 @@ header {
 /* #region list  */
 
 .lists_scroll {
-    overflow-x: scroll;
+    overflow: hidden;
+    overflow-y: visible;
     display: flex;
+    scroll-behavior: smooth;
+    margin-right: 0;
 }
+
+.item_list {
+    .caro_btn {
+        background-color: transparent;
+        font-size: 2rem;
+        font-weight: 700;
+        color: white;
+        border: none;
+
+        &:hover {}
+    }
+}
+
+/* #endregion list  */
 
 
 
@@ -114,13 +131,8 @@ header {
         overflow: hidden;
 
         &:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
             backdrop-filter: blur(10px);
-        }
-
-        .overview {
-            max-height: 20px;
-            overflow: hidden;
         }
     }
 }

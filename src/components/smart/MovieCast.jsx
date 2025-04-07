@@ -1,5 +1,5 @@
 import useMovieCast from "../../hooks/useMovieCast"
-import MovieCastUi from '../dumb/Cast.ui'
+import CastUi from '../dumb/Cast.ui'
 
 export default function MovieCast({ moveId }) {
 
@@ -29,7 +29,7 @@ export default function MovieCast({ moveId }) {
             case 'success':
                 return (
                     <>
-                        <MovieCastUi
+                        <CastUi
                             cast={castState.cast}
                         />
                     </>
