@@ -74,13 +74,9 @@ header {
 
 /* #region list  */
 
-.lists {
-
-    .movies,
-    .series {
-        overflow-y: visible;
-        overflow-x: scroll;
-    }
+.lists_scroll {
+    /* overflow-x: scroll;
+    display: flex; */
 }
 
 /* #region card  */
@@ -89,9 +85,7 @@ header {
 }
 
 .movie_card {
-    .overview {
-        max-height: 20%;
-    }
+
 
     ul {
         list-style: none;
@@ -120,6 +114,11 @@ header {
         &:hover {
             transform: scale(1.1);
             backdrop-filter: blur(10px);
+        }
+
+        .overview {
+            max-height: 20px;
+            overflow: hidden;
         }
     }
 }

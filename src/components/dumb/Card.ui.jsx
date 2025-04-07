@@ -8,7 +8,7 @@ export default function CardUi({ movie, imgPath, language, rating, hover, setHov
     return (
         <>
             <div className="container position-relative">
-                <div onMouseEnter={() => { setHover(true); setMovieId(movie.id); handleCastsFetch() }} onMouseLeave={() => setHover(false)} className={`movie_card`}>
+                <div onMouseEnter={() => { setHover(true); setMovieId(movie.id) }} onMouseLeave={() => { setHover(false); setMovieId(0) }} className={`movie_card`}>
                     <div className={`card-header border border-0 p-0`}>
                         <img src={`${imgPath}${movie.poster_path}`} alt="" />
                     </div>

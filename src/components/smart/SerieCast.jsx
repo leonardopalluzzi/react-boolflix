@@ -1,8 +1,10 @@
 import { useCastContext } from "../../contexts/castContext"
 import SerieCastUi from '../dumb/SerieCast.ui'
 
-export default function MovieCast() {
+export default function SerieCast() {
     const { casts } = useCastContext()
+    console.log(casts);
+
 
     switch (casts.state) {
         case 'empty':
@@ -28,7 +30,7 @@ export default function MovieCast() {
             return (
                 <>
                     <SerieCastUi
-                        cast={casts.serieCast}
+                        cast={casts.cast}
                     />
                 </>
             )

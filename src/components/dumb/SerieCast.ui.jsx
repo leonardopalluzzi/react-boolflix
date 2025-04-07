@@ -1,4 +1,4 @@
-export default function MovieCastUi({ cast }) {
+export default function SerieCastUi({ cast }) {
     return (
         <>
             <h6>Cast: </h6>

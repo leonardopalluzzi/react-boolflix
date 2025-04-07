@@ -3,9 +3,9 @@ export default function MovieCastUi({ cast }) {
         <>
             <h6>Cast: </h6>
             <h5>{cast.map(item => (
-                <>
-                    <span>{item.name}, </span>
-                </>
+
+                <span key={item.id}>{item.name}, </span>
+
             ))}</h5>
         </>
     )

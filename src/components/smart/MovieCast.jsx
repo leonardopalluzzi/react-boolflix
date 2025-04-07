@@ -28,7 +28,7 @@ export default function MovieCast() {
             return (
                 <>
                     <MovieCastUi
-                        cast={casts.movieCast}
+                        cast={casts.cast}
                     />
                 </>
             )

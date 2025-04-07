@@ -1,10 +1,14 @@
+import { useCastContext } from "../../contexts/castContext.jsx"
 import SerieCast from "../smart/SerieCast.jsx"
 
 export default function CardSerieUi({ movie, imgPath, language, rating, hover, setHover }) {
+
+    const { setSerieId, handleCastsFetch } = useCastContext()
+
     return (
         <>
             <div className="container position-relative">
-                <div onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} className={`movie_card`}>
+                <div onMouseEnter={() => { setHover(true); setSerieId(movie.id) }} onMouseLeave={() => { setHover(false); setSerieId(0) }} className={`movie_card`}>
                     <div className={`card-header border border-0 p-0`}>
                         <img src={`${imgPath}${movie.poster_path}`} alt="" />
                     </div>
