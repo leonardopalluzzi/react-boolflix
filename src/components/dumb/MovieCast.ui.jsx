@@ -1,7 +1,14 @@
-export default function MovieCastUi() {
+export default function MovieCastUi({ cast }) {
+    console.log(cast);
+
     return (
         <>
-            <h5>movie cast</h5>
+            <h6>Cast: </h6>
+            <h5>{cast.map(item => (
+                <>
+                    <span>{item.name}</span>
+                </>
+            ))}</h5>
         </>
     )
 }

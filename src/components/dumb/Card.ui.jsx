@@ -1,10 +1,14 @@
-import MovieCastUi from "./MovieCast.ui"
+import { useCastContext } from "../../contexts/castContext"
+import MovieCast from "../smart/MovieCast";
 
 export default function CardUi({ movie, imgPath, language, rating, hover, setHover }) {
+
+    const { setMovieId, handleCastsFetch } = useCastContext()
+
     return (
         <>
             <div className="container position-relative">
-                <div onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} className={`movie_card`}>
+                <div onMouseEnter={() => { setHover(true); setMovieId(movie.id); handleCastsFetch() }} onMouseLeave={() => setHover(false)} className={`movie_card`}>
                     <div className={`card-header border border-0 p-0`}>
                         <img src={`${imgPath}${movie.poster_path}`} alt="" />
                     </div>
@@ -17,7 +21,6 @@ export default function CardUi({ movie, imgPath, language, rating, hover, setHov
                             <li>
                                 <h6>Original Title: </h6>
                                 <span>{movie.original_title}</span>
-
                             </li>
                             <li>
                                 <h6>Language: </h6>
@@ -34,13 +37,13 @@ export default function CardUi({ movie, imgPath, language, rating, hover, setHov
                                 <h6>Overview: </h6>
                                 <span>{movie.overview}</span>
                             </li>
-                            <li><MovieCastUi /></li>
+                            <li><MovieCast /></li>
                         </ul>
                     </div>
                 </div>
 
 
-            </div>
+            </div >
         </>
     )
 }

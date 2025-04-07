@@ -1,8 +1,4 @@
 import { createContext, useContext, useEffect, useState } from 'react'
-import { useMovieContext } from './movieContext'
-
-const { state, popular } = useMovieContext();
-
 
 const CastContext = createContext();
 
@@ -14,8 +10,8 @@ function CastProvider({ children }) {
     })
 
     const [movieId, setMovieId] = useState(0)
-    const [serieId, setSerieId] = useState(0)
-
+    const [serieId, setSerieId] = useState(11393)
+    console.log(movieId);
 
 
     const movieCastEndpoint = `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=36f8def474a69281774f96a879460e82`
@@ -45,6 +41,9 @@ function CastProvider({ children }) {
                         serieCast: serie
                     })
                 }
+
+                console.log(casts);
+
             })
             .catch(err => {
                 console.error(err)
