@@ -23,8 +23,8 @@ export default function CardUi({ movie, imgPath, language, rating, hover, setHov
 
                             </li>
                             <li className="d-flex">
-                                <h6>Voto:</h6>
-                                <span>
+                                <h6>Rating:</h6>
+                                <span className="mx-2">
                                     {rating == 0 ? 'No rating' : Array.from(Array(rating), (el, i) => <i key={i} className="bi bi-star-fill text-warning"></i>)}
                                 </span>
                             </li>

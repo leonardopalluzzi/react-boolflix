@@ -1,7 +1,11 @@
+import { useState } from 'react'
 import CardSerieUi from "../dumb/CardSerie.ui";
 
 export default function CardSeries({ serie }) {
-    const imgPath = 'https://image.tmdb.org/t/p/w185'
+
+    const [hover, setHover] = useState(false)
+
+    const imgPath = 'https://image.tmdb.org/t/p/w342'
 
 
     let language = serie.original_language;
@@ -12,7 +16,14 @@ export default function CardSeries({ serie }) {
     }
     return (
         <>
-            <CardSerieUi rating={rating} language={language} serie={serie} imgPath={imgPath} />
+            <CardSerieUi
+                hover={hover}
+                setHover={setHover}
+                rating={rating}
+                language={language}
+                movie={serie}
+                imgPath={imgPath}
+            />
         </>
     )
 }

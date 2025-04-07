@@ -3,7 +3,7 @@ import CardUi from "../dumb/Card.ui"
 
 export default function Card({ movie }) {
 
-    const [hover, setHover] = useState(true)
+    const [hover, setHover] = useState(false)
 
     const imgPath = 'https://image.tmdb.org/t/p/w342'
 

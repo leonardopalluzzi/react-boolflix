@@ -88,6 +88,7 @@ header {
         z-index: 50;
         transition-duration: 0.5s;
         height: 100%;
+        overflow: hidden;
 
         &:hover {
             transform: scale(1.1);
