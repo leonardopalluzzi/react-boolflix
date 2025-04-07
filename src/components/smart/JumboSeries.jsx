@@ -1,36 +1,37 @@
 import JumboUi from "../dumb/Jumbo.ui";
-import { useMovieContext } from "../../contexts/movieContext";
 import { useState, useEffect } from 'react'
+import { useAllSeriesContext } from "../../contexts/allSeriesContext";
 
 export default function Jumbo() {
 
-    const { popular } = useMovieContext()
+    const { allSeries } = useAllSeriesContext()
+    console.log(allSeries);
+
 
     const [index, setIndex] = useState(0)
 
     useEffect(() => {
-        console.log(popular.state);
 
         //check if state is success, if array is existing and if it is empty
-        if (popular.state !== 'success' || !popular.moviesPopular || popular.moviesPopular.length == 0) {
+        if (allSeries.state !== 'success' || !allSeries.seriesData || allSeries.seriesData.length == 0) {
             return;
         }
 
-        //set intervalevery 3 seconds
+        //set intervall every 3 seconds
         const interval = setInterval(() => {
 
             //increment the index state of 1 and with module operator, reset if if it is bigger then array length
-            setIndex((prevIndex) => (prevIndex + 1) % popular.moviesPopular.length);
+            setIndex((prevIndex) => (prevIndex + 1) % allSeries.seriesData.length);
         }, 4000)
 
         //clear the interval on component unmount
         return () => clearInterval(interval)
 
-    }, [popular])
+    }, [allSeries])
 
     const imgPath = 'https://image.tmdb.org/t/p/w1280'
 
-    switch (popular.state) {
+    switch (allSeries.state) {
         case 'loading':
             return (
                 <>
@@ -41,16 +42,16 @@ export default function Jumbo() {
             return (
                 <>
                     <h1>error</h1>
-                    <p>{popular.message}</p>
+                    <p>{allSeries.message}</p>
                 </>
             )
         case 'success':
             return (
                 <>
                     <JumboUi
-                        title={popular.moviesPopular[index].title}
-                        overview={popular.moviesPopular[index].overview}
-                        poster={popular.moviesPopular[index].poster_path}
+                        title={allSeries.seriesData[index].name}
+                        overview={allSeries.seriesData[index].overview}
+                        poster={allSeries.seriesData[index].poster_path}
                         imgPath={imgPath} />
                 </>
             )

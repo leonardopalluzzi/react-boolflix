@@ -1,5 +1,5 @@
 import { useMovieContext } from "../../contexts/movieContext"
-import ListUi from "../dumb/List.ui"
+import ListUi from "../dumb/List.ui";
 import PopularListUi from "../dumb/PopularList.ui";
 
 export default function List() {
@@ -11,11 +11,7 @@ export default function List() {
 
     switch (state.state) {
         case 'loading':
-            return (
-                <>
-                    <PopularListUi />
-                </>
-            )
+            return null
         case 'error':
             return (
                 <>
@@ -34,7 +30,7 @@ export default function List() {
             return (
                 <>
                     <ListUi
-                        movies={state.moviesData}
+                        movies={[]}
                         series={state.tvData}
                     />
                 </>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+const api_key = import.meta.env.VITE_MOVIE_DB_API_KEY;
 
 export default function useSeriesCast({ id }) {
 
@@ -8,7 +9,7 @@ export default function useSeriesCast({ id }) {
 
     const serieId = id
 
-    const serieCastEndpoint = `https://api.themoviedb.org/3/tv/${serieId}/credits?api_key=36f8def474a69281774f96a879460e82`
+    const serieCastEndpoint = `https://api.themoviedb.org/3/tv/${serieId}/credits?api_key=${api_key}`
 
 
     useEffect(() => {

@@ -3,17 +3,17 @@ export default function SearchForm({ onSearchSubmit, onTextChange, searchText })
         <>
             <form onSubmit={(e) => { e.preventDefault(); onSearchSubmit() }} method="GET" className="d-flex my-2 my-lg-0">
                 <input
-                    className="form-control me-sm-2"
+                    className="search_bar me-sm-2"
                     type="text"
                     value={searchText}
                     onChange={(e) => onTextChange(e.target.value)}
                     placeholder="Search"
                 />
                 <button
-                    className="btn btn-outline-success my-2 my-sm-0"
+                    className="search_btn my-2 my-sm-0"
                     type="submit"
                 >
-                    Search
+                    <i className="bi bi-search"></i>
                 </button>
             </form>
         </>

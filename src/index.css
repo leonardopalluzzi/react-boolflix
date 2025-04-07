@@ -32,6 +32,36 @@ header {
     .logo {
         width: 15%;
     }
+
+    .search_bar {
+        background-color: var(--bf-darkest);
+        color: var(--bf-lighter);
+        border: 1px solid var(--bf-lighter);
+        height: 35px;
+    }
+
+    .search_btn {
+        background-color: transparent;
+        border: none;
+        color: var(--bf-lighter);
+        font-size: 1.5rem;
+    }
+
+    ul {
+        margin-left: 2rem;
+
+        a {
+            color: var(--bf-lighter);
+            text-decoration: none;
+            margin-right: 1rem;
+            transition: 1s;
+
+            &:hover {
+                color: var(--bf-primary);
+            }
+        }
+
+    }
 }
 
 /* #endregion header  */
@@ -131,6 +161,7 @@ header {
         overflow: hidden;
 
         &:hover {
+            cursor: pointer;
             transform: scale(1.05);
             backdrop-filter: blur(10px);
         }

@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import SearchForm from "./SearchForm"
 
 export default function HeaderUi({ searchText, onTextChange, onSearchSubmit }) {
@@ -21,20 +22,17 @@ export default function HeaderUi({ searchText, onTextChange, onSearchSubmit }) {
                         </button>
                         <div className="collapse navbar-collapse" id="collapsibleNavId">
                             <ul className="navbar-nav me-auto mt-2 mt-lg-0">
-                                <li className="nav-item">
-                                    <a className="nav-link active" href="#" aria-current="page"
-                                    >Home
-                                        <span className="visually-hidden">(current)</span></a
-                                    >
+                                <li className="">
+                                    <NavLink to={'/'} >Home</NavLink >
                                 </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#">Serie TV</a>
+                                <li className=" ">
+                                    <NavLink to={'/series'} >Serie TV</NavLink >
                                 </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#">Film</a>
+                                <li className="">
+                                    <NavLink to={'/films'} >Film</NavLink >
                                 </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#">Popolari</a>
+                                <li className="">
+                                    <NavLink to={'/popular'} >Popolari</NavLink >
                                 </li>
                             </ul>
 
