@@ -12,6 +12,21 @@ export default function CardUi({ title, overview, originalName, posterPath, imgP
         return displayText
     }
 
+    function calcStars(rating) {
+        const fullStars = []
+        const emptyStars = []
+        for (let i = 0; i < rating; i++) {
+            fullStars.push(<i key={i} className="bi bi-star-fill text-warning"></i>)
+        }
+
+        for (let i = 0; i < 5 - rating; i++) {
+            emptyStars.push(<i key={`emptyStar-${i}`} className="bi bi-star-fill"></i>)
+        }
+        let stars = []
+
+        return stars = [...fullStars, ...emptyStars]
+    }
+
 
     return (
         <>
@@ -38,7 +53,7 @@ export default function CardUi({ title, overview, originalName, posterPath, imgP
                             <li className="d-flex">
                                 <h6>Rating:</h6>
                                 <span className="mx-2">
-                                    {rating == 0 ? 'No rating' : Array.from(Array(rating), (el, i) => <i key={i} className="bi bi-star-fill text-warning"></i>)}
+                                    {rating == 0 ? 'No rating' : calcStars(rating)}
                                 </span>
                             </li>
                             <li>
